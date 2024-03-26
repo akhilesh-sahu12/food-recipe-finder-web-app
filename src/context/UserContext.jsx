@@ -12,6 +12,7 @@ export const UserProvider = ({ children }) => {
       ...prevUser,
       history: [recipe, ...prevUser.history],
     }));
+    console.log(user);
   };
 
   // Function to toggle a recipe as favorite
@@ -22,6 +23,7 @@ export const UserProvider = ({ children }) => {
         ? prevUser.favorites.filter((fav) => fav !== recipe)
         : [...prevUser.favorites, recipe],
     }));
+    console.log(user);
   };
 
   // Providing the user data and functions to the children components

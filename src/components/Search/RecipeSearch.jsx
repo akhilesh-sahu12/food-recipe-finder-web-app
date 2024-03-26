@@ -84,13 +84,11 @@ function RecipeSearch() {
             <p>Calories: {recipe.recipe.calories.toFixed(2)}</p>
             {/* Use Link to pass the selected recipe as props to RecipeDetails */}
             <Link to={`/recipe/${encodeURIComponent(recipe._links.self.href)}`}>
-              <button onClick={() => selectRecipe(recipe)}>Details</button>
+              <button>Details</button>
             </Link>
           </div>
         ))}
       </div>
-      {/* Pass the selected recipe as props to RecipeDetails */}
-      {selectedRecipe && <RecipeDetails recipe={selectedRecipe} />}
     </div>
   );
 }

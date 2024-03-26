@@ -35,7 +35,7 @@ const Login = () => {
     if (user) {
       userLogin();
       userLoginDetails(user); // Set the current user after login
-      setUser(user.username); // Set the user in the context after login
+      setUser({username:user.username, history:[], favourite:[]}); // Set the user in the context after login
       console.log("Logging in with:", user); // debug purpose only
 
       // Show login success notification

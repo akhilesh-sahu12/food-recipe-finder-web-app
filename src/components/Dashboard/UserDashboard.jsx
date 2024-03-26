@@ -17,9 +17,9 @@ const UserDashboard = () => {
       <h1 className="dashboard-header">Welcome back, {currentUser.username || 'User'}!</h1>
       <div className="search-history">
         <h2>Search History</h2>
-        {user.searchHistory && user.searchHistory.length > 0 ? (
+        {user.history && user.history.length > 0 ? (
           <ul>
-            {user.searchHistory.map((search, index) => (
+            {user.history.map((search, index) => (
               <li key={index}>{search}</li>
             ))}
           </ul>
@@ -29,9 +29,9 @@ const UserDashboard = () => {
       </div>
       <div className="favorite-recipes">
         <h2>Favorite Recipes</h2>
-        {user.favoriteRecipes && user.favoriteRecipes.length > 0 ? (
+        {user.favorite && user.favorite.length > 0 ? (
           <ul>
-            {user.favoriteRecipes.map((recipe, index) => (
+            {user.favorite.map((recipe, index) => (
               <li key={index}>{recipe.name}</li>
             ))}
           </ul>
