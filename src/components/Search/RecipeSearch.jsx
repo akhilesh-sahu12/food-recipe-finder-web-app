@@ -12,7 +12,7 @@ function RecipeSearch() {
   const [healthLabels, setHealthLabels] = useState([]);
   const [cuisineType, setCuisineType] = useState('');
   const [recipes, setRecipes] = useState([]);
-
+  const [refreshing, setRefreshing] = useState(false); // State to track refreshing status
 
   const API_ID = 'd86f621d';
   const API_KEY = '57021c9921626b1458c88e1419d966fc';
@@ -20,7 +20,9 @@ function RecipeSearch() {
   const { addToHistory, toggleFavorite, user } = useContext(UserContext); 
 
   const handleSearch = async (e) => {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault(); // Prevent default form submission behavior if event object is defined
+    }
     try {
       const params = {
         q: query,
@@ -40,6 +42,12 @@ function RecipeSearch() {
     } catch (error) {
       console.error('Error fetching recipes:', error);
     }
+  };
+
+  const handleRefresh = () => {
+    setRefreshing(true); // Set refreshing status to true
+    handleSearch(); // Call handleSearch function to fetch data again
+    setRefreshing(false); // Set refreshing status to false after fetching data
   };
 
   return (
@@ -88,6 +96,11 @@ function RecipeSearch() {
             )}
          </div>
         ))}
+      </div>
+      <div className="refresh-button">
+        <button onClick={handleRefresh} disabled={refreshing}>
+          {refreshing ? 'Refreshing...' : 'Refresh'} {/* Display "Refreshing..." while data is being fetched */}
+        </button>
       </div>
     </div>
   );
