@@ -2,9 +2,8 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'; 
 import './RecipeSearch.css';
-import RecipeDetails from './RecipeDetails';
 import { UserContext } from '../../context/UserContext';
-import Q from 'q';
+import { FaHeart } from 'react-icons/fa'; 
 
 function RecipeSearch() {
   const [query, setQuery] = useState('');
@@ -13,13 +12,12 @@ function RecipeSearch() {
   const [healthLabels, setHealthLabels] = useState([]);
   const [cuisineType, setCuisineType] = useState('');
   const [recipes, setRecipes] = useState([]);
-  const [selectedRecipe, setSelectedRecipe] = useState(null);
 
 
   const API_ID = 'd86f621d';
   const API_KEY = '57021c9921626b1458c88e1419d966fc';
 
-  const { addToHistory, toggleFavorite } = useContext(UserContext); 
+  const { addToHistory, toggleFavorite, user } = useContext(UserContext); 
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -37,16 +35,11 @@ function RecipeSearch() {
       const response = await axios.get('https://api.edamam.com/api/recipes/v2?type=public', { params });
       setRecipes(response.data.hits);
       // Add the search query to search history
-      if(query != "")
+      if(query !== "")
       addToHistory(query);
     } catch (error) {
       console.error('Error fetching recipes:', error);
     }
-  };
-
-  // Function to set the selected recipe
-  const selectRecipe = (recipe) => {
-    setSelectedRecipe(recipe);
   };
 
   return (
@@ -88,8 +81,12 @@ function RecipeSearch() {
             <Link to={`/recipe/${encodeURIComponent(recipe._links.self.href)}`}>
               <button>Details</button>
             </Link>
-            <button className='favorite-button' onClick={() => toggleFavorite(recipe.recipe.label)}>Add In Favorite</button>
-          </div>
+            {user.favorites.includes(recipe.recipe.label) ? (
+              <button onClick={() => toggleFavorite(recipe.recipe.label)}><FaHeart color="red" /></button>
+            ) : (
+              <button onClick={() => toggleFavorite(recipe.recipe.label)}>Favorite</button>
+            )}
+         </div>
         ))}
       </div>
     </div>

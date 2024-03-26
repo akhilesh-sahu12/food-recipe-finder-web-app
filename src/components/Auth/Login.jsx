@@ -48,7 +48,7 @@ const Login = () => {
         draggable: true,
         onClose: () => {
           // Navigate to the home page after 3000 milliseconds (3 seconds)
-          let timeoutId = setTimeout(() => {
+          setTimeout(() => {
             navigate('/dashboard');
           }, 2000);
         },
