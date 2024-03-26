@@ -1,5 +1,3 @@
-// Registration.test.js
-
 import React from 'react';
 import { render, fireEvent, screen, waitFor } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -72,12 +70,6 @@ describe('Registration Component', () => {
         await waitFor(() => {
             expect(screen.getByText('Registration successful! Please login.')).toBeInTheDocument();
         });
-
-        // Additional wait for navigation if needed
-        // You may need to add a specific element that appears after navigation
-        // await waitFor(() => {
-        //   expect(screen.getByText(/Your Navigation Element/i)).toBeInTheDocument();
-        // });
     });
 
     it('displays warning for non-matching passwords', async () => {
@@ -90,8 +82,8 @@ describe('Registration Component', () => {
         );
 
         // Fill in the form with non-matching passwords
-        fireEvent.change(screen.getAllByLabelText(/Username/i)[0], { target: { value: 'testuser' } });
-        fireEvent.change(screen.getAllByLabelText(/Email/i)[0], { target: { value: 'test@example.com' } });
+        fireEvent.change(screen.getAllByLabelText(/Username/i)[0], { target: { value: 'akhil' } });
+        fireEvent.change(screen.getAllByLabelText(/Email/i)[0], { target: { value: 'akhil@sahu.com' } });
         fireEvent.change(screen.getAllByLabelText(/Password/i)[0], { target: { value: 'password123' } });
         fireEvent.change(screen.getAllByLabelText(/Confirm Password/i)[0], { target: { value: 'wrongpassword' } });
         fireEvent.click(screen.getByText(/Register/i));

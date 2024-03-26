@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useAuth } from '../../context/AuthContext';
-import './Registration.css'
+import { useAuth } from '../../context/AuthContext'; // after successfully user registration save that data into context 
+import './Registration.css' // for styling registration page
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -29,7 +29,7 @@ const Registration = () => {
     if (formData.password === formData.confirmPassword) {
       registerUser(formData); 
       setIsSuccessful(true);
-      console.log('Form submitted:', formData);
+      console.log('Form submitted:', formData); // debug purpose only
     } else {
       toast.warning('Password and confirm password do not match!', {
         position: 'top-right',

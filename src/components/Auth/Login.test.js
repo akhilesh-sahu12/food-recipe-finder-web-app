@@ -1,5 +1,3 @@
-// Login.test.js
-
 import React from 'react';
 import { render, fireEvent, screen, waitFor } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -18,8 +16,8 @@ jest.mock('../../context/AuthContext', () => ({
   useAuth: () => ({
     userLogin: jest.fn(),
     registeredUsers: [
-      { email: 'test@example.com', password: 'password123' },
-      // Add more user data as needed for your tests
+      { email: 'akhilesh.sahu@tech.com', password: 'password123' },
+      { email: 'akhilesh@org.in', password: 'password123456' }
     ],
     userLoginDetails: jest.fn(),
   }),
@@ -57,7 +55,7 @@ describe('Login Component', () => {
     );
 
     // Fill in the form with correct credentials
-    fireEvent.change(screen.getAllByLabelText(/Email/i)[0], { target: { value: 'test@example.com' } });
+    fireEvent.change(screen.getAllByLabelText(/Email/i)[0], { target: { value: 'akhilesh.sahu@tech.com' } });
     fireEvent.change(screen.getAllByLabelText(/Password/i)[0], { target: { value: 'password123' } });
 
   });
@@ -72,8 +70,8 @@ describe('Login Component', () => {
     );
 
     // Fill in the form with incorrect credentials
-    fireEvent.change(screen.getAllByLabelText(/Email/i)[0], { target: { value: 'invalid@example.com' } });
-    fireEvent.change(screen.getAllByLabelText(/Password/i)[0], { target: { value: 'wrongpassword' } });
+    fireEvent.change(screen.getAllByLabelText(/Email/i)[0], { target: { value: 'invalid@akhil.com' } });
+    fireEvent.change(screen.getAllByLabelText(/Password/i)[0], { target: { value: 'wrongpassword1' } });
 
     // Submit the form
     fireEvent.click(screen.getAllByText(/Login/i)[1]);

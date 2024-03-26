@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "../Auth/Login.css";
-import { useAuth } from "../../context/AuthContext";
+import "react-toastify/dist/ReactToastify.css"; // popup message for better user experience
+import { useAuth } from "../../context/AuthContext"; // For user logged in update
+import {UserContext} from "../../context/UserContext"; // set user name after login
 import { Navigate } from "react-router-dom";
-import './Login.css'
+import './Login.css' // css style for login page
 
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
   const { userLogin, registeredUsers, userLoginDetails } = useAuth();
   const [logged, setLogged] = useState(false);
+  //const [setUser]=UserContext();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,14 +31,15 @@ const Login = () => {
       (user) =>
         user.email === formData.email && user.password === formData.password
     );
+
     if (user) {
       userLogin();
       setLogged(true);
       userLoginDetails(user);
-      console.log("Logging in with:", user);
+      console.log("Logging in with:", user); // debug purpose only
 
       // Show login success notification
-      toast.success("Login successful!", {
+      toast.success("Login successful!", { 
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -58,6 +61,7 @@ const Login = () => {
   };
 
   if (logged) {
+   // setUser("Akhil");
     return <Navigate to="/dashboard" />;
   }
 

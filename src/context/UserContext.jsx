@@ -3,14 +3,10 @@ import React, { createContext, useState } from 'react';
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState({
-    name: 'John Doe', // Example user data
-    searchHistory: ['Pasta', 'Pizza'], // Example search history
-    favoriteRecipes: [{ name: 'Spaghetti Carbonara' }, { name: 'Margherita Pizza' }], // Example favorite recipes
-  });
+  const [user, setUser] = useState({});
 
   return (
-    <UserContext.Provider value={{ user }}>
+    <UserContext.Provider value={{ user, setUser }}>
       {children}
     </UserContext.Provider>
   );

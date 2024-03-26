@@ -18,10 +18,4 @@ describe('AuthGuard component', () => {
     // For example, check if child routes are rendered when authenticated
     expect(container).toMatchSnapshot();
   });
-
-  it('redirects to /login when not authenticated', () => {
-    // Mock your authentication state to be not authenticated
-    // Render AuthGuard
-    // Ensure that it redirects to /login
-  });
 });

@@ -4,6 +4,10 @@ import './UserDashboard.css';
 
 const UserDashboard = () => {
   const { user } = useContext(UserContext);
+  
+  if (!user) {
+    return <div className="recipe-detail">No history details available.</div>;
+  }
 
   return (
     <div className="dashboard-container">

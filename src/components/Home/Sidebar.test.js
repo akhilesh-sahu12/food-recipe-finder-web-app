@@ -15,10 +15,10 @@ test('renders Sidebar component', () => {
   );
 
   // Check if the component renders without crashing
-  expect(screen.getAllByText(/IPOs & Currency Rates/i)[0]).toBeInTheDocument();
+  expect(screen.getAllByText(/Food Recipe Finder/i)[0]).toBeInTheDocument();
   expect(screen.getByText(/Home/i)).toBeInTheDocument();
-  expect(screen.getAllByText(/IPOs & Currency Rate/i)[1]).toBeInTheDocument();
-  expect(screen.getByText(/Charts/i)).toBeInTheDocument();
+  expect(screen.getAllByText(/Recipe Search/i)[1]).toBeInTheDocument();
+  expect(screen.getByText(/Dashboard/i)).toBeInTheDocument();
   expect(screen.getByText(/Login/i)).toBeInTheDocument();
   expect(screen.getByText(/Register/i)).toBeInTheDocument();
   expect(screen.getByText(/Settings/i)).toBeInTheDocument();

@@ -1,60 +1,65 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 import './RecipeDetails.css';
 
-function RecipeDetails() {
-  const { recipeId } = useParams();
-  const [recipe, setRecipe] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+function RecipeDetails({ recipe }) {
+  if (!recipe) {
+    return <div className="recipe-detail">No recipe details available.</div>;
+  }
 
-  useEffect(() => {
-    const fetchRecipeDetails = async () => {
-      try {
-        const response = await axios.get(recipeId);
-        console.log("RECIPE DETAILS", response.data);
-        setRecipe(response.data);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching recipe details:', error);
-        setError('Error fetching recipe details. Please try again later.');
-        setLoading(false);
-      }
-    };
-    fetchRecipeDetails();
-  }, [recipeId]);
-
-  if (loading) return <div className="loading">Loading...</div>;
-  if (error) return <div className="error">{error}</div>;
-  if (!recipe) return null; // Optionally handle if recipe is null
+  const {
+    name,
+    images,
+    ingredients,
+    totalNutrients,
+    preparation,
+    healthLabels,
+    url
+  } = recipe;
 
   return (
     <div className="recipe-detail">
       <header>
-        <h1>{recipe.recipe.label}</h1>
+        <h1>{name}</h1>
       </header>
       <main>
-        <img src={recipe.recipe.image} alt={recipe.recipe.label} />
+        {images && images.length > 0 && (
+          <img src={images[0].url} alt={name} />
+        )}
         
         <h2>Ingredients:</h2>
         <ul>
-          {recipe.recipe.ingredients && recipe.recipe.ingredients.map((ingredient, index) => (
+          {ingredients && ingredients.map((ingredient, index) => (
             <li key={index}>{ingredient.text}</li>
           ))}
         </ul>
 
+        <h2>Nutritional Facts:</h2>
+        <ul>
+          {totalNutrients && Object.keys(totalNutrients).map((key, index) => (
+            <li key={index}>
+              {totalNutrients[key].label}: {totalNutrients[key].quantity.toFixed(2)} {totalNutrients[key].unit}
+            </li>
+          ))}
+        </ul>
+
+        <h2>Preparation Steps:</h2>
+        <ol>
+          {preparation && preparation.map((step, index) => (
+            <li key={index}>{step.text}</li>
+          ))}
+        </ol>
+
         <h2>Health Labels:</h2>
         <ul>
-          {recipe.recipe.healthLabels && recipe.recipe.healthLabels.map((label, index) => (
+          {healthLabels && healthLabels.map((label, index) => (
             <li key={index}>{label}</li>
           ))}
         </ul>
 
         <h2>Source:</h2>
-        <p>{recipe.source}</p>
+        <p>{url}</p>
 
-        <a href={recipe.url} target="_blank" rel="noopener noreferrer">View Recipe</a>
+        <a href={url} target="_blank" rel="noopener noreferrer">View Recipe</a>
       </main>
     </div>
   );
