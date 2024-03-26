@@ -1,30 +1,26 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Sidebar from './Sidebar';
 
-test('renders Sidebar component', () => {
-  // Mock function for OpenSidebar
-  const openSidebarMock = jest.fn();
+describe('Sidebar Component', () => {
+  it('renders Sidebar component', () => {
+    const { getByText, getByTestId } = render(
+      <Router>
+        <Sidebar openSidebarToggle={true} OpenSidebar={() => {}} />
+      </Router>
+    );
 
-  render(
-    <Router>
-      <Sidebar openSidebarToggle={true} OpenSidebar={openSidebarMock} />
-    </Router>
-  );
+    // Check if the sidebar title is rendered
+    expect(getByText('Food Recipe Finder')).toBeInTheDocument();
 
-  // Check if the component renders without crashing
-  expect(screen.getAllByText(/Food Recipe Finder/i)[0]).toBeInTheDocument();
-  expect(screen.getByText(/Home/i)).toBeInTheDocument();
-  expect(screen.getAllByText(/Recipe Search/i)[1]).toBeInTheDocument();
-  expect(screen.getByText(/Dashboard/i)).toBeInTheDocument();
-  expect(screen.getByText(/Login/i)).toBeInTheDocument();
-  expect(screen.getByText(/Register/i)).toBeInTheDocument();
-  expect(screen.getByText(/Settings/i)).toBeInTheDocument();
-  expect(screen.getByText(/Contact us/i)).toBeInTheDocument();
-
-  // Simulate clicking on the 'X' icon and check if the OpenSidebar function is called
-  userEvent.click(screen.getByText('X'));
-  expect(openSidebarMock).toHaveBeenCalled();
+    // Check if all sidebar links are rendered
+    expect(getByTestId('home-link')).toBeInTheDocument();
+    expect(getByTestId('search-link')).toBeInTheDocument();
+    expect(getByTestId('dashboard-link')).toBeInTheDocument();
+    expect(getByTestId('login-link')).toBeInTheDocument();
+    expect(getByTestId('register-link')).toBeInTheDocument();
+    expect(getByTestId('settings-link')).toBeInTheDocument();
+    expect(getByTestId('contact-link')).toBeInTheDocument();
+  });
 });

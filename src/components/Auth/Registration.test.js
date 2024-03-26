@@ -10,14 +10,6 @@ jest.mock('react-router-dom', () => ({
     useNavigate: jest.fn(),
 }));
 
-// Mock the context provider
-jest.mock('../../context/AuthContext', () => ({
-    ...jest.requireActual('../../context/AuthContext'),
-    useAuth: () => ({
-        registerUser: jest.fn(),
-    }),
-}));
-
 describe('Registration Component', () => {
     it('renders Registration component', () => {
         render(
@@ -57,11 +49,10 @@ describe('Registration Component', () => {
         );
 
         // Fill in the form
-        fireEvent.change(screen.getAllByLabelText(/Username/i)[0], { target: { value: 'akhil' } });
-        fireEvent.change(screen.getAllByLabelText(/Email/i)[0], { target: { value: 'akhil@example.com' } });
-        fireEvent.change(screen.getAllByLabelText(/Password/i)[0], { target: { value: 'password1234' } });
-        fireEvent.change(screen.getAllByLabelText(/Confirm Password/i)[0], { target: { value: 'password1234' } });
-  
+        fireEvent.change(screen.getAllByLabelText(/Username/i)[0], { target: { value: 'testuser' } });
+        fireEvent.change(screen.getAllByLabelText(/Email/i)[0], { target: { value: 'test@example.com' } });
+        fireEvent.change(screen.getAllByLabelText(/Password/i)[0], { target: { value: 'password123' } });
+        fireEvent.change(screen.getAllByLabelText(/Confirm Password/i)[0], { target: { value: 'password123' } });
 
         // Submit the form
         fireEvent.click(screen.getByText(/Register/i));
@@ -82,10 +73,10 @@ describe('Registration Component', () => {
         );
 
         // Fill in the form with non-matching passwords
-        fireEvent.change(screen.getAllByLabelText(/Username/i)[0], { target: { value: 'akhil' } });
-        fireEvent.change(screen.getAllByLabelText(/Email/i)[0], { target: { value: 'akhil@sahu.com' } });
+        fireEvent.change(screen.getAllByLabelText(/Username/i)[0], { target: { value: 'testuser' } });
+        fireEvent.change(screen.getAllByLabelText(/Email/i)[0], { target: { value: 'test@example.com' } });
         fireEvent.change(screen.getAllByLabelText(/Password/i)[0], { target: { value: 'password123' } });
-        fireEvent.change(screen.getAllByLabelText(/Confirm Password/i)[0], { target: { value: 'wrongpassword' } });
+        fireEvent.change(screen.getAllByLabelText(/Confirm Password/i)[0], { target: { value: 'differentpassword' } });
         fireEvent.click(screen.getByText(/Register/i));
 
         // Wait for warning message
