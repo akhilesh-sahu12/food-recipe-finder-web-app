@@ -28,6 +28,7 @@
     border: none;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
+    margin: 10px;
   }
   
   .recipe-search button:hover {
@@ -71,4 +72,14 @@
   .recipe-card p {
     margin: 0;
   }
+
+  .recipe-search .favorite-button{
+    background-color: #360808;;
+  }
+
+  .recipe-search .favorite-button:hover {
+    background-color: #a11b1b;
+  }
+
+  
   

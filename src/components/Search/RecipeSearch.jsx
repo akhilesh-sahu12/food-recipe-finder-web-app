@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './RecipeSearch.css';
 import RecipeDetails from './RecipeDetails';
 import { UserContext } from '../../context/UserContext';
+import Q from 'q';
 
 function RecipeSearch() {
   const [query, setQuery] = useState('');
@@ -18,7 +19,7 @@ function RecipeSearch() {
   const API_ID = 'd86f621d';
   const API_KEY = '57021c9921626b1458c88e1419d966fc';
 
-  const { addToHistory } = useContext(UserContext); 
+  const { addToHistory, toggleFavorite } = useContext(UserContext); 
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -36,6 +37,7 @@ function RecipeSearch() {
       const response = await axios.get('https://api.edamam.com/api/recipes/v2?type=public', { params });
       setRecipes(response.data.hits);
       // Add the search query to search history
+      if(query != "")
       addToHistory(query);
     } catch (error) {
       console.error('Error fetching recipes:', error);
@@ -86,6 +88,7 @@ function RecipeSearch() {
             <Link to={`/recipe/${encodeURIComponent(recipe._links.self.href)}`}>
               <button>Details</button>
             </Link>
+            <button className='favorite-button' onClick={() => toggleFavorite(recipe.recipe.label)}>Add In Favorite</button>
           </div>
         ))}
       </div>

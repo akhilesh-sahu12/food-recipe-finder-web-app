@@ -12,18 +12,16 @@ export const UserProvider = ({ children }) => {
       ...prevUser,
       history: [recipe, ...prevUser.history],
     }));
-    console.log(user);
+    console.log("Search recipe added successfully in history",user);
   };
 
   // Function to toggle a recipe as favorite
   const toggleFavorite = (recipe) => {
     setUser((prevUser) => ({
       ...prevUser,
-      favorites: prevUser.favorites.includes(recipe)
-        ? prevUser.favorites.filter((fav) => fav !== recipe)
-        : [...prevUser.favorites, recipe],
+      favorites:  [ recipe, ...prevUser.favorites],
     }));
-    console.log(user);
+    console.log("Successfully Added this recipe in your favorite",recipe);
   };
 
   // Providing the user data and functions to the children components

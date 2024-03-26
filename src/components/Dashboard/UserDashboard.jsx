@@ -29,10 +29,10 @@ const UserDashboard = () => {
       </div>
       <div className="favorite-recipes">
         <h2>Favorite Recipes</h2>
-        {user.favorite && user.favorite.length > 0 ? (
+        {user.favorites && user.favorites.length > 0 ? (
           <ul>
-            {user.favorite.map((recipe, index) => (
-              <li key={index}>{recipe.name}</li>
+            {user.favorites.map((favorite, index) => (
+              <li key={index}>{favorite}</li>
             ))}
           </ul>
         ) : (
