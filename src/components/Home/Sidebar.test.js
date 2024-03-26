@@ -15,12 +15,12 @@ describe('Sidebar Component', () => {
     expect(getByText('Food Recipe Finder')).toBeInTheDocument();
 
     // Check if all sidebar links are rendered
-    expect(getByTestId('home-link')).toBeInTheDocument();
-    expect(getByTestId('search-link')).toBeInTheDocument();
-    expect(getByTestId('dashboard-link')).toBeInTheDocument();
-    expect(getByTestId('login-link')).toBeInTheDocument();
-    expect(getByTestId('register-link')).toBeInTheDocument();
-    expect(getByTestId('settings-link')).toBeInTheDocument();
-    expect(getByTestId('contact-link')).toBeInTheDocument();
+    expect(getByText('Home')).toBeInTheDocument();
+    expect(getByText('Recipe Search')).toBeInTheDocument();
+    expect(getByText('Dashboard')).toBeInTheDocument();
+    expect(getByText('Login')).toBeInTheDocument();
+    expect(getByText('Register')).toBeInTheDocument();
+    expect(getByText('Settings')).toBeInTheDocument();
+    expect(getByText('Contact Us')).toBeInTheDocument();
   });
 });

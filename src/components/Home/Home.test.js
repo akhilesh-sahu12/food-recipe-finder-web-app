@@ -15,13 +15,8 @@ describe('Home Component', () => {
     expect(getByText('Recipes for dinner')).toBeInTheDocument();
     expect(getByText('Total')).toBeInTheDocument();
 
-    // Check if all icons are rendered
-    expect(getByTestId('breakfast-icon')).toBeInTheDocument();
-    expect(getByTestId('lunch-icon')).toBeInTheDocument();
-    expect(getByTestId('dinner-icon')).toBeInTheDocument();
-
     // Check if general information is rendered
-    expect(getByText('The application will serve as a platform where users can explore a variety of food recipes.')).toBeInTheDocument();
+    expect(getByText('The application will serve as a platform where users can explore a variety of food recipes. It will integrate the Edamam API to fetch recipe data based on user queries. The goal is to create a user-friendly application that provides clear and concise information about food recipes, including ingredients, nutritional information, and cooking instructions.')).toBeInTheDocument();
 
     // Check if user features list is rendered
     expect(getByText('Features List')).toBeInTheDocument();

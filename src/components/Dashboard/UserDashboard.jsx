@@ -4,9 +4,9 @@ import { useAuth} from '../../context/AuthContext';
 import './UserDashboard.css'; 
 
 const UserDashboard = () => {
-  const { user } = useContext(UserContext);
+ const { user } = useContext(UserContext);
  const {currentUser} =useAuth();
- console.log('user', user)
+ //console.log('user', user)
   
   if (!user) {
     return <div className="recipe-detail">No user details available.</div>;

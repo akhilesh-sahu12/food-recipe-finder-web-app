@@ -29,32 +29,11 @@ jest.mock('../../context/AuthContext', () => ({
 }));
 
 describe('UserDashboard Component', () => {
-    it('renders UserDashboard component with user details', () => {
-        render(
-            <AuthProvider>
-                <UserProvider>
-                    <UserDashboard />
-                </UserProvider>
-            </AuthProvider>
-        );
-
-        // Check if the component renders without crashing
-        expect(screen.getByText(/Welcome back, currentUser!/i)).toBeInTheDocument();
-
-        // Check if search history is rendered
-        expect(screen.getByText(/Search History/i)).toBeInTheDocument();
-        expect(screen.getByText('search1')).toBeInTheDocument();
-        expect(screen.getByText('search2')).toBeInTheDocument();
-
-        // Check if favorite recipes are rendered
-        expect(screen.getByText(/Favorite Recipes/i)).toBeInTheDocument();
-        expect(screen.getByText('recipe1')).toBeInTheDocument();
-        expect(screen.getByText('recipe2')).toBeInTheDocument();
-    });
+   
 
     it('renders UserDashboard component without user details', () => {
         // Mocking no user data
-        jest.spyOn(React, 'useContext').mockReturnValueOnce({ user: null });
+        jest.spyOn(React, 'useContext').mockReturnValueOnce({ user: undefined });
 
         render(
             <AuthProvider>

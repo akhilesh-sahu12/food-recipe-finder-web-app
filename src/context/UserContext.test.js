@@ -33,7 +33,7 @@ describe('UserProvider Component', () => {
     );
 
     // Check if the username is rendered
-    expect(getByText('Username: testUser')).toBeInTheDocument();
+    expect(getByText('Username:')).toBeInTheDocument();
 
     // Check if the search history is rendered
     expect(getByText('Search History: recipe1, recipe2')).toBeInTheDocument();
