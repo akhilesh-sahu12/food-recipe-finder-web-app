@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // popup message for better user experience
 import { useAuth } from "../../context/AuthContext"; // For user logged in update
-import {UserContext} from "../../context/UserContext"; // set user name after login
-import { Navigate } from "react-router-dom";
+import { UserContext } from "../../context/UserContext"; // set user name after login
 import './Login.css' // css style for login page
 
 const Login = () => {
@@ -13,9 +12,10 @@ const Login = () => {
     password: "",
   });
 
+  const navigate = useNavigate();
+
   const { userLogin, registeredUsers, userLoginDetails } = useAuth();
-  const [logged, setLogged] = useState(false);
-  //const [setUser]=UserContext();
+  const { setUser } = useContext(UserContext); // Access setUser function from UserContext
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,18 +34,24 @@ const Login = () => {
 
     if (user) {
       userLogin();
-      setLogged(true);
-      userLoginDetails(user);
+      userLoginDetails(user); // Set the current user after login
+      setUser(user.username); // Set the user in the context after login
       console.log("Logging in with:", user); // debug purpose only
 
       // Show login success notification
       toast.success("Login successful!", { 
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
+        onClose: () => {
+          // Navigate to the home page after 3000 milliseconds (3 seconds)
+          let timeoutId = setTimeout(() => {
+            navigate('/dashboard');
+          }, 2000);
+        },
       });
     } else {
       // Show login warning notification
@@ -59,11 +65,6 @@ const Login = () => {
       });
     }
   };
-
-  if (logged) {
-   // setUser("Akhil");
-    return <Navigate to="/dashboard" />;
-  }
 
   return (
     <div className="Login">

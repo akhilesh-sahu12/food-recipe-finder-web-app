@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'; 
 import './RecipeSearch.css';
 import RecipeDetails from './RecipeDetails';
+import { UserContext } from '../../context/UserContext';
 
 function RecipeSearch() {
   const [query, setQuery] = useState('');
@@ -13,8 +14,11 @@ function RecipeSearch() {
   const [recipes, setRecipes] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
 
+
   const API_ID = 'd86f621d';
   const API_KEY = '57021c9921626b1458c88e1419d966fc';
+
+  const { addToHistory } = useContext(UserContext); 
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -31,6 +35,8 @@ function RecipeSearch() {
 
       const response = await axios.get('https://api.edamam.com/api/recipes/v2?type=public', { params });
       setRecipes(response.data.hits);
+      // Add the search query to search history
+      addToHistory(query);
     } catch (error) {
       console.error('Error fetching recipes:', error);
     }
