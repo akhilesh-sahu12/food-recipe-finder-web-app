@@ -33,7 +33,7 @@ describe('UserDashboard Component', () => {
 
     it('renders UserDashboard component without user details', () => {
         // Mocking no user data
-        jest.spyOn(React, 'useContext').mockReturnValueOnce({ user: undefined });
+        jest.spyOn(React, 'useContext').mockReturnValueOnce({ user: null });
 
         render(
             <AuthProvider>
