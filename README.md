@@ -89,6 +89,42 @@ List the key technologies or frameworks used in your project.
 
 
 ## Screenshots
+![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Web%20screen/Screenshot%202024-03-27%20094834.png)
+
+![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Web%20screen/Screenshot%202024-03-27%20094850.png)
+
+![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Web%20screen/Screenshot%202024-03-27%20095107.png) ![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Web%20screen/Screenshot%202024-03-27%20095206.png)
+
+![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Web%20screen/Screenshot%202024-03-27%20095223.png)
+
+![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Web%20screen/Screenshot%202024-03-27%20095307.png)
+
+![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Web%20screen/Screenshot%202024-03-27%20095529.png) ![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Web%20screen/Screenshot%202024-03-27%20095551.png)
+
+![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Web%20screen/Screenshot%202024-03-27%20095647.png) ![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Web%20screen/Screenshot%202024-03-27%20095746.png)
+
+![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Web%20screen/Screenshot%202024-03-27%20100011.png) ![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Web%20screen/Screenshot%202024-03-27%20100142.png)
+
+![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Web%20screen/Screenshot%202024-03-27%20100246.png)
+
+
+![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Mobile%20screen/iPhone-13-PRO-localhost.png) ![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Mobile%20screen/iPhone-13-PRO-localhost%20(1).png)
+
+![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Mobile%20screen/iPhone-13-PRO-localhost%20(2).png) ![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Mobile%20screen/iPhone-13-PRO-localhost%20(3).png) ![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Mobile%20screen/iPhone-13-PRO-localhost%20(4).png)
+
+![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Mobile%20screen/iPhone-13-PRO-localhost%20(5).png) ![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Mobile%20screen/iPhone-13-PRO-localhost%20(11).png)
+
+![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Mobile%20screen/iPhone-13-PRO-localhost%20(12).png) 
+
+![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Mobile%20screen/iPhone-13-PRO-localhost%20(14).png) ![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Mobile%20screen/iPhone-13-PRO-localhost%20(15).png) ![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Mobile%20screen/iPhone-13-PRO-localhost%20(16).png)
+
+![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Mobile%20screen/iPhone-13-PRO-localhost%20(18).png) ![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Mobile%20screen/iPhone-13-PRO-localhost%20(19).png) ![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Mobile%20screen/iPhone-13-PRO-localhost%20(20).png)
+
+![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Mobile%20screen/iPhone-13-PRO-localhost%20(24).png) ![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Mobile%20screen/iPhone-13-PRO-localhost%20(27).png) 
+
+![App Screenshot](https://github.com/akhilesh-sahu12/food-recipe-finder-web-app/blob/master/screenshots/Mobile%20screen/iPhone-13-PRO-localhost%20(29).png)
+
+
 
 
 
